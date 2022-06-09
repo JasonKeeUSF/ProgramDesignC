@@ -19,18 +19,21 @@ int main() {
     while(size<15) {
         scanf("%d", &number);
         // Validate number and check if duplicate
-        if (number < 1 || number > 100)
-            break;
-        bool flag = false;
-        for (int dupe = 0; dupe < size; dupe++) {
-            if (arr[dupe] == number) {
-                flag = true;
-                break;
+        if (number < 1 || number > 100) {
+            printf("Only input integers between 1 and 100!\n");
+        } else {
+            bool flag = false;
+            for (int dupe = 0; dupe < size; dupe++) {
+                if (arr[dupe] == number) {
+                    flag = true;
+                    break;
+                }
+            }
+            // Inserting into array if not a duplicate
+            if (!flag) {
+                arr[size++] = number;
             }
         }
-        // Inserting into array if not a duplicate
-        if (!flag)
-            arr[size++] = number;
     }
     // Displaying the array
     printf("\nYour Array is: \n");
